@@ -71,14 +71,22 @@ const Messages = () => {
                     {formatDate(message.date)}
                   </div>
                 </div>
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="bg-sacred-white/90 rounded-lg p-2 flex items-center space-x-2">
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/50">
+                  <div className="bg-sacred-white rounded-lg p-3 flex items-center space-x-3 shadow-lg">
                     <img 
                       src={message.thumbnail} 
                       alt="Video preview"
-                      className="w-16 h-12 object-cover rounded"
+                      className="w-20 h-14 object-cover rounded border-2 border-divine-blue/20"
+                      onError={(e) => {
+                        console.log('Thumbnail failed to load:', message.thumbnail);
+                        e.currentTarget.style.display = 'none';
+                      }}
+                      onLoad={() => console.log('Thumbnail loaded:', message.thumbnail)}
                     />
-                    <Play className="w-8 h-8 text-divine-blue" />
+                    <div className="flex flex-col items-center">
+                      <Play className="w-8 h-8 text-divine-blue mb-1" />
+                      <span className="text-xs text-divine-blue font-medium">Play Video</span>
+                    </div>
                   </div>
                 </div>
               </div>
