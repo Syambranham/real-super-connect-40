@@ -72,7 +72,12 @@ const Messages = () => {
                   </div>
                 </div>
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="bg-sacred-white/90 rounded-full p-4">
+                  <div className="bg-sacred-white/90 rounded-lg p-2 flex items-center space-x-2">
+                    <img 
+                      src={message.thumbnail} 
+                      alt="Video preview"
+                      className="w-16 h-12 object-cover rounded"
+                    />
                     <Play className="w-8 h-8 text-divine-blue" />
                   </div>
                 </div>
